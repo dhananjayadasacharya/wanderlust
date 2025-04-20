@@ -1,0 +1,127 @@
+body{
+    background-color: rgb(68, 117, 160);
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+.navbar{
+    height: 5rem;
+    background-color: #fff;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.f-info-links a{
+    text-decoration: none;
+    transition-duration: 400ms;
+    color: #545454;
+}
+.f-info-links a:hover{
+    color: #000000;
+}
+.f-info-socials i{
+    margin-left: 1rem;
+}
+.f-info{
+    display: flex;
+    height: 6.4rem;
+    text-align: center;
+    background-color: #ebebeb;
+    padding: 0.7rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.card-img-top{
+    width: 100% !important;
+    border-radius: 1rem !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0 !important;
+}
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+    transition: 100ms;
+}
+.card-img-overlay:hover{
+    background-color: #fff;
+    opacity: 0.2;
+}
+.add-btn, .edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+
+}
+
+/* map */
+#map {   width: 80%;
+height: 50vh;
+margin: auto;
+border-radius: 1rem; }
+
+
+.search-bar form{
+    display: flex;
+}
+.search-btn{
+    background-color: #fe424d !important;
+    color: #ebebeb !important;
+    margin-left: 1rem;
+    border-radius:2rem !important;
+    text-align: center !important;
+    
+}
+.search-input{
+    border-radius:2rem !important;
+
+}
+.filter-box{
+    width: fit-content;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0.5rem;
+    height: 4rem;
+    opacity: 0.7;
+    transition: opacity .3s ease-out;
+    margin-left: 1rem;
+}
+.filter-box:hover{
+    
+    opacity: 1;
+    transition: opacity .1s ease-out;
+
+    cursor: pointer;
+}
+.filters{
+    padding: 1rem;
+    display: flex;
+
+}
+.filter-box i{
+    align-self: center;
+}
+.filter-box p{
+    font-size: 0.8rem;
+    margin: 0;
+}
+.tax-filter{
+    align-content: center;
+}
+.price{
+    display: inline;
+}
