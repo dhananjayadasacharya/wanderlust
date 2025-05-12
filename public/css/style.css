@@ -46,7 +46,8 @@ body{
 }
 .listing-card{
     border: none !important;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
 }
 .listing-link{
     text-decoration: none;
@@ -108,9 +109,11 @@ border-radius: 1rem; }
     cursor: pointer;
 }
 .filters{
-    padding: 1rem;
     display: flex;
-
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
 }
 .filter-box i{
     align-self: center;
@@ -124,4 +127,39 @@ border-radius: 1rem; }
 }
 .price{
     display: inline;
+}
+
+@media (max-width: 768px) {
+    .filters {
+        justify-content: center;
+    }
+    
+    .tax-filter {
+        width: 100%;
+        text-align: center;
+        margin: 1rem 0;
+    }
+    
+    .listing-card {
+        width: 100%;
+    }
+    
+    .card-img-top {
+        height: 250px !important;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 576px) {
+    .filter-box {
+        width: calc(50% - 1rem);
+    }
+    
+    .card-img-top {
+        height: 200px !important;
+    }
+    
+    .price {
+        font-size: 0.9rem;
+    }
 }

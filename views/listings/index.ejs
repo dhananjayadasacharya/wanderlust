@@ -1,55 +1,59 @@
 <% layout("/layouts/boilerplate") %>
 
 <body>
-    <div class="filters">
-        <div class="filter-box">
-            <i class="fa-solid fa-fire-flame-curved"></i>
-            <p>Trending</p>
+    <div class="container-fluid">
+        <div class="filters">
+            <div class="filter-box">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <p>Trending</p>
+            </div>
+            <div class="filter-box">
+                <i class="fa-solid fa-bed"></i>
+                <p>Rooms</p>
+            </div>
+            <div class="filter-box">
+                <i class="fa-solid fa-mountain-city"></i>
+                <p>Iconic Cities</p>
+            </div>
+            <div class="filter-box">
+                <i class="fa-solid fa-mountain"></i>
+                <p>Mountains</p>
+            </div>
+            <div class="filter-box">
+                <i class="fa-solid fa-snowflake"></i>
+                <p>Artic</p>
+            </div>
+            <div class="filter-box">
+                <i class="fa-solid fa-campground"></i>
+                <p>Camping</p>
+            </div>
+            <div class="form-check form-switch tax-filter ms-auto">
+                <input class="form-check-input tax-toggle" type="checkbox" unchecked role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display After Tax</label>
+            </div>
         </div>
-        <div class="filter-box">
-            <i class="fa-solid fa-bed"></i>
-            <p>Rooms</p>
-        </div>
-        <div class="filter-box">
-            <i class="fa-solid fa-mountain-city"></i>
-            <p>Iconic Cities</p>
-        </div>
-        <div class="filter-box">
-            <i class="fa-solid fa-mountain"></i>
-            <p>Mountains</p>
-        </div>
-        <div class="filter-box">
-            <i class="fa-solid fa-snowflake"></i>
-            <p>Artic</p>
-        </div>
-        <div class="filter-box">
-            <i class="fa-solid fa-campground"></i>
-            <p>Camping</p>
-        </div>
-        <div class="form-check form-switch tax-filter ms-auto">
-            <input class="form-check-input tax-toggle" type="checkbox" unchecked role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Display After Tax</label>
-        </div>
-    </div>
-    <!-- <br><form action="/listing/new" method="get"><button>Add place</button></form><br> -->
 
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-        <% for(let listing of allListings){ %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
-
-                <div class="listing-card card col" >
-                    <img class="card-img-top" src="<%= listing.image.url %>" alt="Card image cap" style="height: 20rem;">
-                    <div class="card-img-overlay"></div>
-                    <div class="card-body">
-                        <p class="card-text mb-0"><b><%= listing.title %></b></p>
-                        &#8377;<div class="price">
-                                <%= listing.price.toLocaleString("en-IN") %>  
-                            </div> /night
-                    </div>
+        <div class="row g-3">
+            <% for(let listing of allListings){ %>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none">
+                        <div class="listing-card card h-100">
+                            <img class="card-img-top" src="<%= listing.image.url %>" alt="<%= listing.title %>" loading="lazy">
+                            <div class="card-body">
+                                <p class="card-text mb-2"><b><%= listing.title %></b></p>
+                                <div class="d-flex align-items-center">
+                                    <span class="currency">₹</span>
+                                    <div class="price mx-1">
+                                        <%= listing.price.toLocaleString("en-IN") %>
+                                    </div>
+                                    <span>/night</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </a>
-          <% } %>
+            <% } %>
+        </div>
     </div>
-
 </body>
 <script src="/js/gst.js"></script>
