@@ -2,6 +2,14 @@
 
 <body>
     <div class="container-fluid">
+        <!-- Search Results Container -->
+        <div id="searchResultsContainer" style="display: none;">
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <div id="searchResultsContent"></div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+
         <div class="filters">
             <div class="filter-box">
                 <i class="fa-solid fa-fire-flame-curved"></i>
@@ -33,7 +41,7 @@
             </div>
         </div>
 
-        <div class="row g-3">
+        <div class="row g-3" id="listingsContainer">
             <% for(let listing of allListings){ %>
                 <div class="col-12 col-sm-6 col-lg-4">
                     <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none">
@@ -57,3 +65,4 @@
     </div>
 </body>
 <script src="/js/gst.js"></script>
+<script src="/js/chatbot.js"></script>

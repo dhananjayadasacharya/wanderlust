@@ -5,6 +5,54 @@ body{
     flex-direction: column;
     min-height: 100vh;
 }
+
+/* Search Input Styles */
+.navbar .form-control {
+    min-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .navbar .form-control {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .form-control {
+        min-width: 200px;
+    }
+}
+
+/* Search Loading Styles - Ensure hidden by default */
+#mobileSearchLoading, #desktopSearchLoading {
+    color: #6c757d;
+    padding-left: 0.7rem;
+    font-size: 0.9rem;
+    display: none !important; /* Force hidden by default */
+}
+
+#mobileSearchLoading.show, #desktopSearchLoading.show {
+    display: block !important; /* Only show when explicitly shown */
+}
+#ai-search{
+    min-width: 120px;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+}
+
+/* Search button specific styles */
+.navbar .btn[type="submit"] {
+    min-width: 120px;
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .btn[type="submit"] .fas {
+    margin-right: 0.5rem;
+}
 .container{
     flex: 1;
 }
@@ -150,6 +198,19 @@ border-radius: 1rem; }
         border-top: 1px solid #dee2e6;
     }
     
+    /* Fix flash message visibility on mobile */
+    #searchResultsContainer {
+        margin: 0 1rem;
+        position: relative;
+        z-index: 999;
+    }
+    
+    .alert {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+        word-wrap: break-word;
+    }
+    
     .filters {
         justify-content: center;
     }
@@ -181,6 +242,28 @@ border-radius: 1rem; }
     
     .price {
         font-size: 0.9rem;
+    }
+    
+    /* Mobile search button adjustments */
+    .navbar .btn[type="submit"] {
+        min-width: 100px;
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .navbar .btn[type="submit"] .fas {
+        margin-right: 0.25rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Adjust form layout for mobile */
+    #mobileSearchForm {
+        gap: 0.5rem;
+    }
+    
+    #mobileSearchForm .form-control {
+        flex: 1;
+        min-width: 180px;
     }
 }
 

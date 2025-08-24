@@ -1,7 +1,6 @@
-if(process.env.NODE_ENV != "production"){
-    require('dotenv').config()    
-}
 
+require('dotenv').config()    
+let MONGO_URL = process.env.ATLAS_URL;
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -12,6 +11,7 @@ const ExpressError = require("./utils/ExpressError.js");
 const listingRoute = require("./routes/listing.js");
 const reviewRoute = require("./routes/review.js");
 const userRoute = require("./routes/user.js");
+const chatbotRoute = require("./routes/chatbot.js");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
@@ -19,7 +19,7 @@ const User = require("./models/user.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
-const MONGO_URL=process.env.ATLAS_URL;
+
 async function main(){
     await mongoose.connect(MONGO_URL);
 }
@@ -77,14 +77,15 @@ app.use((req, res, next)=>{
 app.use(express.static(path.join(__dirname, "/public")));
 app.engine("ejs", engine);
 app.use(methodOverride("_method"));
-
 app.use(express.urlencoded({extended: true}));
+app.use(express.json()); // Add this to parse JSON requests
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 
 
 app.use("/listings", listingRoute);
 app.use("/listings/:id/reviews", reviewRoute);
+app.use("/chatbot", chatbotRoute);
 app.use("/",userRoute);
 
 

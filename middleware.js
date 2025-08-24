@@ -41,12 +41,18 @@ module.exports.isAuthor = async (req, res, next)=>{
 
 module.exports.ValidateListing = (req,res,next)=>{
     let result = listingSchema.validate(req.body);
-    if(result.error)next(new ExpressError(400, result.error.message));
-        else next();
+    if(result.error) {
+        next(new ExpressError(400, result.error.message));
+    } else {
+        next();
+    }
 }
 
 module.exports.ValidateReview = (req,res,next)=>{
     let result = reviewSchema.validate(req.body);
-    if(result.error)next(new ExpressError(400, result.error.message))
-        else next();
+    if(result.error) {
+        next(new ExpressError(400, result.error.message));
+    } else {
+        next();
+    }
 }
